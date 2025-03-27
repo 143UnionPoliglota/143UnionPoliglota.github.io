@@ -197,3 +197,33 @@ header .bg-color {
     border-radius: 50%;
     filter: blur(115px);
 }
+/* Novedades section */
+#news {
+    background: #f5f5f5;
+    margin-top: -60px;
+    padding-top: 180px;
+}
+
+#news .container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+section .icon {
+    width: 30px;
+}
+
+.features-container {
+    display: flex;
+    gap: 40px;
+    margin-top: 32px;
+}
+
+.feature {
+    flex: 1;
+}
+
+section .btn {
+    margin-top: 28px;
+}
