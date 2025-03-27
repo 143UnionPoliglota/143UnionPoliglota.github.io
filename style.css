@@ -306,6 +306,9 @@ section .heading-container {
   -webkit-background-clip: text;
   color: transparent;
 }
+#why img {
+    transform: rotateY(180deg);
+}
 
 /* Blog section */
 .labels a {
