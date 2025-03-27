@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unión Poliglota</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script type='text/javascript'>
+        // <![CDATA[
+        var colour= "#b8860b";
+        var sparkles= 40;
+        
+        /****************************
+        * Tinkerbell Magic Sparkle *
+        * (c) 2005 mf2fm web-design *
+        * http://www.mf2fm.com/rv *
+        * DON'T EDIT BELOW THIS BOX *
+        ****************************/
+        
+        var x=ox=400;
+        var y=oy=300;
+        var swide=800;
+        var shigh=600;
+        var sleft=sdown=0;
+        var tiny=new Array();
+        var star=new Array();
+        var starv=new Array();
+        var starx=new Array();
+        var stary=new Array();
+        var tinyx=new Array();
+        var tinyy=new Array();
+        var tinyv=new Array();
+        window.onload=function() { if (document.getElementById) {
+        var i, rats, rlef, rdow;
+        for (var i=0; i<sparkles; i++) {
+        var rats=createDiv(3, 3);
+        rats.style.visibility="hidden";
+        document.body.appendChild(tiny[i]=rats);
+        starv[i]=0;
+        tinyv[i]=0;
+        var rats=createDiv(5, 5);
+        rats.style.backgroundColor="transparent";
+        rats.style.visibility="hidden";
+        var rlef=createDiv(1, 5);
+        var rdow=createDiv(5, 1);
+        rats.appendChild(rlef);
+        rats.appendChild(rdow);
+        rlef.style.top="2px";
+        rlef.style.left="0px";
+        rdow.style.top="0px";
+        rdow.style.left="2px";
+        document.body.appendChild(star[i]=rats);
+        }
+        set_width();
+        sparkle();
+        }}
+        function sparkle() {
+        var c;
+        if (x!=ox || y!=oy) {
+        ox=x;
+        oy=y;
+        for (c=0; c<sparkles; c++) if (!starv[c]) {
+        star[c].style.left=(starx[c]=x)+"px";
+        star[c].style.top=(stary[c]=y)+"px";
+        star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+        star[c].style.visibility="visible";
+        starv[c]=50;
+        break;
+        }
+        }
+        for (c=0; c<sparkles; c++) {
+        if (starv[c]) update_star(c);
+        if (tinyv[c]) update_tiny(c);
+        }
+        setTimeout("sparkle()", 40);
+        }
+        function update_star(i) {
+        if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+        if (starv[i]) {
+        stary[i]+=1+Math.random()*3;
+        if (stary[i]<shigh+sdown) {
+        star[i].style.top=stary[i]+"px";
+        starx[i]+=(i%5-2)/5;
+        star[i].style.left=starx[i]+"px";
+        }
+        else {
+        star[i].style.visibility="hidden";
+        starv[i]=0;
+        return;
+        }
+        }
+        else {
+        tinyv[i]=50;
+        tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+        tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+        tiny[i].style.width="2px";
+        tiny[i].style.height="2px";
+        star[i].style.visibility="hidden";
+        tiny[i].style.visibility="visible"
+        }
+        }
+        function update_tiny(i) {
+        if (--tinyv[i]==25) {
+        tiny[i].style.width="1px";
+        tiny[i].style.height="1px";
+        }
+        if (tinyv[i]) {
+        tinyy[i]+=1+Math.random()*3;
+        if (tinyy[i]<shigh+sdown) {
+        tiny[i].style.top=tinyy[i]+"px";
+        tinyx[i]+=(i%5-2)/5;
+        tiny[i].style.left=tinyx[i]+"px";
+        }
+        else {
+        tiny[i].style.visibility="hidden";
+        tinyv[i]=0;
+        return;
+        }
+        }
+        else tiny[i].style.visibility="hidden";
+        }
+        document.onmousemove=mouse;
+        function mouse(e) {
+        set_scroll();
+        y=(e)?e.pageY:event.y+sdown;
+        x=(e)?e.pageX:event.x+sleft;
+        }
+        function set_scroll() {
+        if (typeof(self.pageYOffset)=="number") {
+        sdown=self.pageYOffset;
+        sleft=self.pageXOffset;
+        }
+        else if (document.body.scrollTop || document.body.scrollLeft) {
+        sdown=document.body.scrollTop;
+        sleft=document.body.scrollLeft;
+        }
+        else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+        sleft=document.documentElement.scrollLeft;
+        sdown=document.documentElement.scrollTop;
+        }
+        else {
+        sdown=0;
+        sleft=0;
+        }
+        }
+        window.onresize=set_width;
+        function set_width() {
+        if (typeof(self.innerWidth)=="number") {
+        swide=self.innerWidth;
+        shigh=self.innerHeight;
+        }
+        else if (document.documentElement && document.documentElement.clientWidth) {
+        swide=document.documentElement.clientWidth;
+        shigh=document.documentElement.clientHeight;
+        }
+        else if (document.body.clientWidth) {
+        swide=document.body.clientWidth;
+        shigh=document.body.clientHeight;
+        }
+        }
+        function createDiv(height, width) {
+        var div=document.createElement("div");
+        div.style.position="absolute";
+        div.style.height=height+"px";
+        div.style.width=width+"px";
+        div.style.overflow="hidden";
+        div.style.backgroundColor=colour;
+        return (div);
+        }
+        // ]]>
+    </script> 
+    <!-- End of Tinkerbell Magic Sparkle Section -->
+</head>
+<body>
+    <div class="mobile-menu-items">
+        <div class="close-icon">
+            <img src=https://raw.githubusercontent.com/livebloggerofficial/Modern-AppDev-Website/8730a27be3ad3a9761c6617480e412280c7f90fc/images/close-icon.svg alt="una X" />
+        </div>
+        <a href="#services">Novedades</a>
+        <a href="#blog">Idiomas</a>
+        <a href="#about">Foros</a>
+        <a href="#contact">Contáctanos</a>
+        <a href="#" class="btn">Empezar</a>
+    </div>
+
+    <div class="container">
+    <nav>
+        <div class="logo">
+            <a href="#">Unión Poliglota</a>
+        </div>
+
+        <div class="menu-items">
+            <a href="#services">Novedades</a>
+            <a href="#blog">Idiomas</a>
+            <a href="#about">Foros
+            <a href="#contact">Contáctanos</a>
+            <a href="#" class="btn">Start</a>
+        </div>
+
+        <div class="menu-icon">
+            <img src=https://raw.githubusercontent.com/livebloggerofficial/Modern-AppDev-Website/8730a27be3ad3a9761c6617480e412280c7f90fc/images/menu-icon.svg alt="dos lineas horizontales" />
+        </div>
+    </nav>
+<!-- End of navbar -->
+
+    <header>
+        <div class="left">
+            <h1>¡Bienvenida! ⋆⭒˚.⋆</h1>
+            <p class="sub-heading">Ya que creemos que cada paso cuenta y que el aprendizaje de idiomas abre puertas a nuevas culturas y oportunidades.</p>
+            <p>¡Comencemos juntos este emocionante camino!<br>Asi que dejame mostrarte como funcionan las cosas por aquí.</p>
+
+        <div class="buttons">
+            <a href="#" class="btn">Ver más</a>
+            <a href="#" class="btn outlined">Contáctanos</a>
+        </div>
+    </div>
+
+        <div class="right">
+            <img src="https://media.giphy.com/media/kUzZPC32NH7qteJp3G/giphy.gif?cid=ecf05e47tvn05rl2n6pa6ccbat1i79yehj6995wxy6pcmg0u&ep=v1_stickers_search&rid=giphy.gif&ct=s" alt="Libro mágico">
+        </div>
+        <div class="bg-color"></div>
+    </header>
+    </div>
+<!-- End of hero section -->
+
+<div class="carousel-container">
+    <div class="carousel">
+        <div class="carousel-item"><img src="https://cdn-icons-png.flaticon.com/128/15416/15416463.png" alt="UK flag"></div>
+        <div class="carousel-item"><img src="https://cdn-icons-png.flaticon.com/128/15416/15416352.png" alt="Korea flag"></div>
+        <div class="carousel-item"><img src="https://cdn-icons-png.flaticon.com/128/15417/15417204.png" alt="Japan flag"></div>
+        <div class="carousel-item"><img src="https://cdn-icons-png.flaticon.com/128/15416/15416964.png" alt="China flag"></div>
+        <div class="carousel-item"><img src="https://cdn-icons-png.flaticon.com/128/15416/15416401.png" alt="Thailand flag"></div>
+    </div>
+</div>
+<!-- End of lenguages section -->
+
+<section id="services">
+    <div class="container">
+    <div class="heading-container">
+        <h2>Conoce lo último del mes</h2>
+        <p>Enterate de las ultimas actualizaciones y novedades que se vienen (ᵕ—ᴗ—)</p>
+        </div>
+
+    <div class="services-container">
+        <div class="service">
+        <img src="https://i.pinimg.com/originals/b2/df/41/b2df419e9f985cd5ca587505028899b4.gif" alt="" />
+            <div class="content">
+                <h3>Más brujitas vienen en camino</h3>
+                <p>Porque el aprender idiomas es un camino largo, decidimos agrandar el set de juegos</p>
+            </div>
+        </div>
+
+        <div class="service">
+            <img src="https://i.pinimg.com/originals/2b/0e/26/2b0e260f780d03c6702c127573a343d1.gif" alt="" />
+            <div class="content">
+                <h3>Nuevos grimorios</h3>
+                <p>Conoce los grimorios más demandados por otras brujas últimamente</p>
+            </div>
+        </div>
+
+        <div class="service">
+            <img src="https://i.pinimg.com/originals/2e/9a/2d/2e9a2d99e9b3a32dcb4ae1c37820e260.gif" alt="" />
+            <div class="content">
+                <h3>Cómo cambiar las reglas</h3>
+                <p>Una guía completa de como personalizar tu propio grimorio</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<!-- End of services section -->
+
+    <section id="why">
+        <div class="container">
+        <div class="left">
+            <img src="https://media.giphy.com/media/0nQbxFHTIugLbMkZLx/giphy.gif?cid=ecf05e475aerffncjtg1ratvc46cjguu7g2pbi9yic3552u9&ep=v1_stickers_search&rid=giphy.gif&ct=s" alt="" />
+        </div>
+
+        <div class="right">
+            <h2>Cómo funcionamos</h2>
+            <p></p>
+
+        <div class="features-container">
+            <div class="feature">
+            <div class="icon">
+                <img src="images/check-icon.svg" alt="" />
+            </div>
+                <h3>Expertise</h3>
+                <p></p>
+            </div>
+
+        <div class="feature">
+            <div class="icon">
+                <img src="images/check-icon.svg" alt="" />
+            </div>
+                <h3>Customization</h3>
+                <p></p>
+            </div>
+        </div>
+
+        <a href="#" class="btn light">Contact Us</a>
+        </div>
+    </div>
+</section>
+<!-- End of why choose us section -->
+
+    <div class="container">
+        <section id="blog">
+        <div class="heading-container">
+            <h2>Grimorio de las Lenguas</h2>
+            <p>Encuentra todo acerca de los idiomas que deseas, desde material hasta pequeñas lecciones ¿y lo mejor? 
+                <br>¡TODO ABSOLUTAMENTE GRATIS! ദ്ദി ˉ͈̀꒳ˉ͈́ )✧
+            </p>
+        </div>
+
+        <div class="services-container">
+            <div class="service">
+            <a href="#">
+                <img src="https://i.pinimg.com/736x/71/ec/3f/71ec3f5fd75e319a3983a06b10090c10.jpg" alt="" />
+            </a>
+            <div class="content">
+                <a href="#">
+                <h3>Inglés</h3>
+                </a>
+            <div class="labels">
+                <a href="#" class="label">Germanica</a>
+                <a href="#" class="label">America</a>
+            </div>
+            <p>"Por el poder de las palabras y la sabiduría de Merlín, abro las puertas a un nuevo mundo. Que el inglés fluya en mi mente como un hechizo eterno, guiado por las estrellas de Avalon."</p>
+            </div>
+        </div>
+
+        <div class="service">
+            <a href="#">
+                <img src="https://i.pinimg.com/736x/51/16/6f/51166f9f8ce608188358e9d89b0071bb.jpg" alt="" />
+            </a>
+            <div class="content">
+            <a href="#">
+                <h3>Coreano</h3>
+            </a>
+            <div class="labels">
+                <a href="#" class="label">Asiatica</a>
+                <a href="#" class="label">Asia</a>
+            </div>
+                <p>"Con el resplandor del 한글 (hangeul), despierto la sabiduría de Dangun. Que el coreano me guíe como la luz del oso celestial, revelando el destino de mi voz."</p>
+            </div>
+        </div>
+
+        <div class="service">
+            <a href="#">
+                <img src="https://i.pinimg.com/736x/80/7a/e9/807ae96d8e19a1e9d9b68d727c9a2609.jpg" alt="" />
+            </a>
+            <div class="content">
+                <a href="#">
+                    <h3>Japonés</h3>
+                </a>
+                <div class="labels">
+                    <a href="#" class="label">Asia</a>
+                    <a href="#" class="label">Asiatica</a>
+                </div>
+                    <p>"Con cada kanji, invoco la esencia del dragón Ryūjin y la diosa Benzaiten. Que el japonés fluya como el agua sagrada de los ríos, tejiendo palabras con la magia del sol naciente."</p>
+                </div>
+            </div>
+
+        <a href="languages-list.html" class="btn outlined">View All Posts</a>
+    </section>
+</div>
+<!-- End of Blog section -->
+
+    <section id="about">
+        <div class="container">
+            <div class="right">
+                <img src="https://media.giphy.com/media/ZB2A2wSblwoA45zr0L/giphy.gif?cid=ecf05e47akoi5xxq334s9fwlyfgipdauknv6pdrlddz8e9sn&ep=v1_stickers_search&rid=giphy.gif&ct=s" alt="moon" />
+            </div>
+    
+            <div class="left">
+                <h2>¿Cansada de hablar sola?</h2>
+                <p>Encuentra diversos grupos en los cuales podras practicar con gente de todo el mundo ( ◡̀_◡́)ᕤ</p>
+    
+        <div class="features-container">
+            <div class="feature">
+            <div class="icon">
+                <img src="https://cdn-icons-png.flaticon.com/128/4330/4330842.png" alt="espejo encantado dorado" />
+            </div>
+                <h3>Mirrowhats</h3>
+                <p>Mira dentro del Mirrowhats y conversa con quienes te esperan al otro lado</p>
+            </div>
+    
+        <div class="feature">
+                <div class="icon">
+                    <img src="https://cdn-icons-png.flaticon.com/128/18459/18459795.png" alt="grimoire" />
+                </div>
+                    <h3>Gramorio</h3>
+                    <p>Los hechizos más veloces se escriben en el Gramorio, ¿te unes?</p>
+                </div>
+    
+        <div class="feature">
+            <div class="icon">
+                <img src="https://cdn-icons-png.flaticon.com/128/5584/5584307.png" alt="orb dorada" />
+            </div>
+                <h3>Discharm</h3>
+                <p>El Orbe resplandece… las almas llaman en Discord, ¿te unes al ritual?</p>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!-- End of about section  -->
+
+    <section id="contact">
+        <div class="container">
+        <div class="heading-container">
+            <h2>¿Necesitas un Lumos para tus preguntas?</h2>
+            <p>Envía una lechuza para más información o asistencia</p>
+        </div>
+
+        <form action="#">
+        <div class="group">
+            <input type="text" placeholder="Angel the Raccoon" />
+            <input type="text" placeholder="AngeltheRaccoon@example.com" />
+        </div>
+        <textarea placeholder="¡Escribe tu mensaje aqui antes de que los nargles se lo lleven!"></textarea>
+        <button class="btn">Enviar lechuza</button>
+        </form>
+    </div>
+</section>
+<!-- End of contact form -->
+
+    <footer>
+    <div class="container">
+        <div class="top">
+        <div class="left">
+            <a href="#" class="logo">Unión Poliglota</a>
+            <p>Cada idioma es un conjuro para entender el mundo 🪄🌎</p>
+        </div>
+
+        <div class="right">
+            <p>Follow us on</p>
+            <div class="social">
+            <a href="https://www.instagram.com/ply.learningforstudents/profilecard/?igsh=eDNlOWlndm1heTBs">
+                <img src="https://cdn-icons-png.flaticon.com/128/174/174855.png" alt="Instagram logo" />
+            </a>
+
+            <a href="https://t.me/+lkxGrxfS3kU0MDgx">
+                <img src="https://cdn-icons-png.flaticon.com/128/4423/4423663.png" alt="Telegram logo" />
+            </a>
+        </div>
+    </div>
+</div>
+
+        <div class="copyright">
+            © 2025 Unión Poliglota
+        </div>
+        </div>
+</footer>
+
+        <script src="main.js"></script>
+    </body>
+</html>
