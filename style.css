@@ -539,9 +539,7 @@ form .btn:hover {
     width: 60vw;
     max-width: 300px;
   }
-
-  /* Tarjetas */
-  .card, .section-box {
+  .languages-box, .languague-card {
     width: 90%;
     margin: 1rem auto;
     padding: 1.5rem;
@@ -549,24 +547,17 @@ form .btn:hover {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
     text-align: center;
   }
-
-  /* Galería de imágenes */
-  .image-gallery {
+  .language-card img {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     padding: 1rem 0;
-  }
-
-  .image-gallery img {
     width: 90%;
     max-width: 320px;
     border-radius: 1rem;
     object-fit: cover;
   }
-
-  /* Formulario */
   .contact form {
     flex-direction: column;
     padding: 2rem 1rem;
