@@ -503,6 +503,10 @@ form .btn:hover {
     opacity: 1;
   }
 
+  section {
+    padding: 8rem 3% 8rem;
+  }
+
   .home {
     flex-direction: column-reverse;
     margin: 4rem 0;
@@ -529,48 +533,59 @@ form .btn:hover {
   }
 
   .home-content p {
-    max-width: 90%;
-    margin: 0 auto;
+    max-width: 100%;
     font-size: 1.6rem;
-    line-height: 1.6;
+    padding: 0 1rem;
   }
 
   .home-img img {
-    width: 60vw;
-    max-width: 300px;
+    width: 80vw;
   }
-  .languages-box, .languague-card {
-    width: 90%;
-    margin: 1rem auto;
-    padding: 1.5rem;
-    border-radius: 1.2rem;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-    text-align: center;
+
+  .heading {
+    font-size: 4rem;
   }
+
+  .foro-info h4 {
+    font-size: 2.4rem;
+  }
+
+  .foro-info p {
+    font-size: 1.4rem;
+  }
+
+  .language-card {
+    padding: 3rem 1rem;
+  }
+
+  .language-card h3 {
+    font-size: 2rem;
+  }
+
   .language-card img {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
-    width: 90%;
-    max-width: 320px;
-    border-radius: 1rem;
-    object-fit: cover;
+    max-width: 100%;
+    height: auto;
   }
-  .contact form {
+
+  form .group {
     flex-direction: column;
-    padding: 2rem 1rem;
+  }
+
+  form .btn {
     width: 100%;
   }
 
-  .contact input,
-  .contact textarea,
-  .contact button {
-    width: 100%;
-    margin-top: 1rem;
-    padding: 1rem;
+  .footer ul li {
+    display: block;
+    margin: 1rem 0;
+  }
+
+  .footer ul {
     font-size: 1.6rem;
-    border-radius: 0.8rem;
+  }
+
+  .social-icons a {
+    font-size: 2.4rem;
+    margin: 1rem;
   }
 }
