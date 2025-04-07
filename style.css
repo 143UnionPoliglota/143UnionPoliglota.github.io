@@ -396,7 +396,31 @@ form .btn:hover {
 }
 .footer {
     background-color: var(--second-bg-color);
-    padding: 50px 0;
+    padding: 8vw;
+    display: flex;
+    justify-content: space-between;
+    aling-items: flex-start;
+    flew-wrap: wrap;
+}
+footer .footer-col {
+    padding-bottom: 40px;
+}
+footer h3 {
+    color: var(--text-color);
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+footer li {
+    list-style: none;
+    color: var(--accent-color);
+    padding: 10px 0;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+footer li:hover {
+    color: transparent;
+    background: linear-gradient(to bottom,#ff6961,#fcae1e,#fff275,#8cd790,#6ec6ff,#c58af9);
 }
 .social-icons a {
     display: inline-flex;
