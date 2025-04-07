@@ -268,57 +268,58 @@ form .group {
 
 /* MEDIA QUERY ESPECÍFICA PARA MÓVILES PEQUEÑOS */
 
-@media (max-width: 480px) {
-  html {
-    font-size: 50%;
+@media (max-width: 800px) {
+  header {
+    padding: 2rem 5%;
   }
 
-  .heading {
-    font-size: 4rem;
-    margin-bottom: 3rem;
+  #menu-icon {
+    display: block;
   }
 
-  .home-content h1 {
-    font-size: 4.5rem;
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 99;
   }
 
-  .home-content h3 {
-    font-size: 2.4rem;
-  }
-
-  .home-content p {
-    font-size: 1.6rem;
-  }
-
-  .gradient-btn, .btn {
-    font-size: 2rem;
-    padding: 1.2rem 2rem;
-  }
-
-  .home-img img {
-    width: 80vw;
-  }
-
-  .foro-info h4 {
-    font-size: 2.6rem;
-  }
-
-  .foro-info p,
-  .language-card p {
-    font-size: 1.4rem;
-  }
-
-  .language-card h3 {
-    font-size: 1.8rem;
+  .navbar.active {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .navbar a {
-    font-size: 1.8rem;
+    margin: 1.5rem 0;
+    font-size: 2rem;
   }
 
-  form .input-box input,
-  form textarea {
-    font-size: 1.4rem;
-    padding: 1.2rem;
+  .home {
+    flex-direction: column;
+    text-align: center;
+    gap: 5rem;
+  }
+
+  .home-img img {
+    width: 60vw;
+  }
+
+  .foro-container {
+    grid-template-columns: 1fr;
+  }
+
+  form .group {
+    flex-direction: column;
   }
 }
