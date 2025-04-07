@@ -1,52 +1,39 @@
-const menuIcon = document.querySelector(".menu-icon");
-const closeIcon = document.querySelector(".close-icon");
-const mobileMenuItems = document.querySelector(".mobile-menu-items");
-const allMobileMenuLinks = document.querySelectorAll(".mobile-menu-items a");
+const toggleBtn = document.getElementById('theme-toggle');
+const icon = document.getElementById('icon');
 
-const searchContainer = document.querySelector(".search-container");
-const searchIcons = document.querySelectorAll(".search-icon");
-const searchInput = document.querySelector(
-  ".search-input-container input[type='text']"
-);
-const searchInputContainer = document.querySelector(".search-input-container");
+function setTheme(theme) {
+    if (theme === 'dark') {
+    document.body.classList.add('dark');
+    icon.classList.replace('bxs-sun', 'bxs-moon');
+} else {
+    document.body.classList.remove('dark');
+    icon.classList.replace('bxs-moon', 'bxs-sun');
+}
+    localStorage.setItem('theme', theme);
+}
 
-menuIcon.addEventListener("click", () => {
-  mobileMenuItems.classList.add("active");
-});
+function toggleTheme() {
+    const isDark = document.body.classList.contains('dark');
+    setTheme(isDark ? 'light' : 'dark');
+}
 
-closeIcon.addEventListener("click", () => {
-  mobileMenuItems.classList.remove("active");
-});
+function loadTheme() {
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+    setTheme(saved);
+} else {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(prefersDark ? 'dark' : 'light');
+}
+}
 
-allMobileMenuLinks.forEach((l) => {
-  l.addEventListener("click", () => {
-    mobileMenuItems.classList.remove("active");
-  });
-});
+toggleBtn.addEventListener('click', toggleTheme);
+loadTheme();
 
-// Search icon
+let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
 
-searchIcons.forEach((searchIcon) => {
-  searchIcon.addEventListener("click", () => {
-    searchContainer.classList.add("active");
-    searchInput.focus();
-  });
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    searchContainer.classList.remove("active");
-    searchInput.value = "";
-  }
-});
-
-document.addEventListener("click", (e) => {
-  if (
-    e.target.closest(".search-input-container") ||
-    e.target.closest(".search-icon")
-  )
-    return;
-
-  searchContainer.classList.remove("active");
-  searchInput.value = "";
-});
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x')
+    navbar.classList.toggle('active');
+} 
