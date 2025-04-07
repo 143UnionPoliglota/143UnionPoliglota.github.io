@@ -1,3 +1,14 @@
+toggleBtn.addEventListener('click', toggleTheme);
+loadTheme();
+
+let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x')
+    navbar.classList.toggle('active');
+} 
+
 const toggleBtn = document.getElementById('theme-toggle');
 const icon = document.getElementById('icon');
 
@@ -26,14 +37,3 @@ function loadTheme() {
     setTheme(prefersDark ? 'dark' : 'light');
 }
 }
-
-toggleBtn.addEventListener('click', toggleTheme);
-loadTheme();
-
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
-
-menuIcon.onclick = () => {
-    menuIcon.classList.toggle('bx-x')
-    navbar.classList.toggle('active');
-} 
