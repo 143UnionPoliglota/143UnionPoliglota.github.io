@@ -444,17 +444,25 @@ form .btn:hover {
     font-size: 16px;
 }
 
-@media(max-width:800px) {
-html {
+@media (max-width: 800px) {
+  html {
     font-size: 55%;
-}
-header {
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  header {
     padding: 2rem 3%;
-}
-#menu-icon {
+  }
+
+  #menu-icon {
     display: block;
-}
-.navbar {
+  }
+
+  .navbar {
     position: absolute;
     top: 100%;
     right: 0;
@@ -466,43 +474,65 @@ header {
     border-left: 2px solid var(--accent-color);
     border-bottom: 2px solid var(--accent-color);
     display: none;
-}
-.navbar a {
+    z-index: 1000;
+  }
+
+  .navbar a {
     display: block;
-    font-size: 2rem;
-    margin: 3rem 0;
+    font-size: 1.6rem;
+    margin: 2rem 0;
     color: var(--text-color);
-}
-.navbar.active {
+    text-align: right;
+  }
+
+  .navbar.active {
     display: block;
-}
-.gradient-btn {
-    display: none;
-}
-.home {
+  }
+
+  .gradient-btn {
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gradient-btn.show {
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .home {
     flex-direction: column-reverse;
     margin: 5rem 4rem;
     gap: 5rem;
-}
-.home-content {
+    min-height: 100vh;
+  }
+
+  .home-content {
     align-items: center;
     text-align: center;
-}
-.home-content h3 {
+  }
+
+  .home-content h3 {
     font-size: 2.6rem;
-}
-.home-content h2 {
-    font-size: 8rem;
+  }
+
+  .home-content h2 {
+    font-size: 4.5rem;
     margin-top: 3rem;
-}
-.home-content p {
+  }
+
+  .home-content p {
     max-width: 600px;
     margin: 0 auto;
-}
-.home-img img {
+  }
+
+  .home-img img {
     width: 56vw;
-}
-.contact form {
+  }
+
+  .contact form {
     flex-direction: column;
-}
+  }
 }
