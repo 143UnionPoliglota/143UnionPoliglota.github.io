@@ -243,7 +243,7 @@ section {
 
 .foros {
     background-color: var(--second-bg-color);
-    color: #212121;
+    color: var(--text-color);
 }
 .foros h2 {
     color: var(--text-color);
@@ -304,27 +304,21 @@ section {
 }
 .language-card {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    gap: 2rem;
-    padding: 5rem 2rem;
-    overflow: hidden;
+    align-items: center;
+    height: 300px;
+    border-radius: 3rem;
     cursor: pointer;
-    height: 100%;
-    width: 100%;
-    transition: 0.3s ease-in-out;
+    border: 5px solid transparent;
+    transition: 0.4s ease-in-out;
 }
 .language-card:hover {
     transform: scale(1.02);
 }
 .language-card img {
-    max-width: 300px;
+    width: 100px;
     border-radius: 2em;
     object-fit: cover;
-    height: 200px;
-    width: 100%;
     display: flex;
 }
 .language-card:hover img {
@@ -349,7 +343,6 @@ section {
     bottom: 49%;
     opacity: 1;
 }
-
 #contact {
     background: var(--bg-color);
 }
