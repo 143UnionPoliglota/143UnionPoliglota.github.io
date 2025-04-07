@@ -87,8 +87,8 @@ header {
 }
 span:hover {
     background: linear-gradient(90deg,#ff6961,#fcae1e,#fff275,#8cd790,#6ec6ff,#c58af9); 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 .navbar a {
